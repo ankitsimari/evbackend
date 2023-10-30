@@ -44,7 +44,7 @@ userRouter.post("/login",async(req,res)=>{
             bcrypt.compare(password, user.password, async(err, result)=> {
               if(result){
                 var token = jwt.sign({email:user.email}, 'Ankit',{expiresIn:'7d'});
-                res.status(200).send({"loginSuccessful":`Token:${token}`})
+                res.status(200).send({"loginSuccessful":`${token}`})
               }else{
                 res.status(200).send({"msg":"wrong password"})
               }
